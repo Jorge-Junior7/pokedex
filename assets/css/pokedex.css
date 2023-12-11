@@ -1,0 +1,153 @@
+.pokemons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.normal  {
+  background-color: #a6a877 ; 
+}
+.grass   {
+    background-color: #77c850;
+}
+.fire    {
+    background-color: #ee7f30;
+}
+.water   {
+    background-color: #678fee; 
+}
+.electric {
+    background-color:#f7cf2e;
+}
+.ice     {
+    background-color: #98d5d7;   
+}
+.ground  {
+    background-color: #dfbf69;
+}
+.flying  {
+    background-color: #a98ff0;   
+}
+.poison  {
+    background-color: #a98ff0; 
+}
+.fighting{
+    background-color: #bf3029;
+}
+.psychic {
+    background-color:#f65687;
+}
+.dark    {
+    background-color: #725847;
+}
+.rock    {
+    background-color: #b8a137;
+}
+.bug     {
+    background-color: #a8b720;
+}
+.ghost   {
+    background-color: #6e5896;
+}
+.stell   {
+    background-color: #b9b7cf;
+}
+.dragon  {
+    background-color: #6f38f6;
+    }
+.fairy   {
+    background-color: #f9aec7;
+}
+
+
+.pokemon {
+    display: flex;
+    flex-direction: column;
+    margin: .5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.pokemon .number {
+    color: #000;
+    opacity: 0.3;
+    text-align: right;
+}
+
+.pokemon .name {
+    color: white;
+    margin-bottom: 0.25rem;
+    text-transform: capitalize;
+}
+
+.pokemon .detail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.pokemon .detail .types {
+    padding: 0%;
+    margin: 0%;
+    list-style: none;
+}
+
+.pokemon .detail .types .type {
+    color: #fff;
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    border-radius: 1rem;
+    filter: brightness(1.1);
+    text-align: center;
+}
+
+.pokemon .detail img {
+    max-width: 100%;
+    height: 70px;
+    align-self: flex-end;
+}
+
+.pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.pagination button {
+    padding: .25rem .5rem;
+    margin: .25rem 0;
+    font-size: .625rem;
+    background-color: #6c79db;
+    border: none;
+    border-radius: 1rem;
+    color: #000;
+}
+
+/*TELA RESPONSIVA*/
+/* Media query para telas de 380px ou mais, exibindo 2 Pokémon por linha */
+@media screen and (min-width: 380px) {
+    .pokemons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Media query para telas de 576x ou mais, exibindo 3 Pokémon por linha */
+@media screen and (min-width: 576px) {
+    .pokemons {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Media query para telas de 992px ou mais, exibindo 4 Pokémon por linha */
+@media screen and (min-width: 992px) {
+    .pokemons {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
