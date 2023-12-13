@@ -130,6 +130,7 @@
     color: #000;
 }
 
+
 /*TELA RESPONSIVA*/
 /* Media query para telas de 380px ou mais, exibindo 2 Pokémon por linha */
 @media screen and (min-width: 380px) {

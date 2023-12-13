@@ -1,4 +1,4 @@
-// Selecionando elementos do DOM
+// Seletor do botão
 const pokemonList = document.getElementById('pokemonList');
 const loadMoreButton = document.getElementById('loadMoreButton');
 
@@ -13,20 +13,20 @@ function loadPokemonItens(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     // Mapeando os Pokémons retornados para criar o HTML correspondente
     const newHtml = pokemons.map((pokemon) => `
-          <li class="pokemon ${pokemon.type}">
-            <span class="number">${pokemon.number}</span>
-            <span class="name">${pokemon.name}</span>
-
-            <div class="detail">
-            <ol class="types">
+    <li class="pokemon ${pokemon.type}">
+      <span class="number">${pokemon.number}</span>
+      <span class="name">${pokemon.name}</span>
+      <div class="detail">
+           <ol class="types">
             ${pokemon.types.map((type) => `<li class="type ${type}">${type}</li>`).join('')}
             </ol>
-            <img src="${pokemon.photo}"
-            alt="${pokemon.name}">
-            </div>
-          </li>
+           <a href="http://127.0.0.1:8080/details/${pokemon.number}.html"> <!-- Link de detalhes dinâmico para cada Pokémon -->
+            <img src="${pokemon.photo}" alt="${pokemon.name}">
+           </a>
+     </div>
+</li>
       `).join('')
-       // Adicionando o HTML gerado à lista de Pokémons no DOM
+    // Adicionando o HTML gerado à lista de Pokémons no DOM
     pokemonList.innerHTML += newHtml
   })
 }
@@ -42,12 +42,12 @@ loadMoreButton.addEventListener('click', () => {
 
   // Verificando se a próxima página excede o número máximo de registros
   if (qtdRecordNexPage >= maxRecords) {
-    const newLimit = maxRecords- offset; // Definindo um novo limite para evitar ultrapassar o número máximo de registros
+    const newLimit = maxRecords - offset; // Definindo um novo limite para evitar ultrapassar o número máximo de registros
     loadPokemonItens(offset, newLimit);  // Carregando os Pokémons restantes dentro do novo limite
 
     loadMoreButton.parentElement.removeChild(loadMoreButton); // Removendo o botão "Carregar Mais" se atingir ou exceder o número máximo de registros
   } else {
-    
+
     loadPokemonItens(offset, limit); // Carregando mais Pokémons dentro do limite estabelecido
   }
 
